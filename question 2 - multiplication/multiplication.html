@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GoYourWay</title>
+
+    <style>
+        *{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" name="string" id="num1">
+    <input type="text" name="string" id="num2">
+    <button id="trigger">Multiply</button>
+
+    <div id="output">
+
+    </div>
+
+
+    <script>    
+
+
+    function reverseString(str) {
+        var splitString = str.split("");
+        var reverseArray = splitString.reverse();    
+    
+        return ;
+    }
+ 
+
+    function multiply(num1, num2) {
+        var i, j, k, size1 = num1.length , size2 = num2.length;
+        var ret = [];
+        console.log('num1 : ', num1, 'num2 : ', num2);
+        for(k=0;k<size1+size2+1;k++)
+            ret.push('0');
+        if(size1==0||size2==0) return "";
+
+        console.log('ret : ', ret)
+
+        num1 = reverseString(num1);
+        num2 = reverseString(num2);
+
+        console.log('num1 : ', num1, 'num2 : ', num2);
+
+        for(i=0;i<size2;i++){
+            var dig2=num2[i];
+            var carry=0;
+            for(j=0;j<size1;j++){
+                var dig1=num1[j];
+                var temp=ret[i+j];
+                var cur=dig1*dig2+temp+carry;
+            }
+            ret[i+size1]=carry;
+        }
+
+        var reverseArray = ret.reverse();    
+        var joinString = ret.join("");
+        return joinString;
+    }
+
+    var button = document.getElementById('trigger');
+
+    button.addEventListener('click',function(){
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+
+        console.log(num1, num2);
+
+        var output = multiply(num1, num2);
+
+        document.getElementById('output').textContent = output;
+    },false);
+    
+    </script>
+
+</body>
+</html>

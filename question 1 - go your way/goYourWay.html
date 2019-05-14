@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GoYourWay</title>
+
+    <style>
+        *{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <input type="text" name="string" id="string">
+    <button id="trigger">Output</button>
+
+    <div id="output">
+
+    </div>
+
+
+    <script>    
+    var button = document.getElementById('trigger');
+
+    button.addEventListener('click',function(){
+        var str = document.getElementById('string').value;
+        console.log(str);
+        var output = '';
+
+        var i = 0;
+    
+        while(i < str.length){
+            // write your logic here
+        }
+
+        console.log(output);
+
+        document.getElementById('output').textContent = output;
+    },false);
+    
+    </script>
+
+</body>
+</html>
